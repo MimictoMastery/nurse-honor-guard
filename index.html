@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heart of Appalachia Nurse Honor Guard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <!-- HEADER: site name and navigation links -->
+  <header class="site-header">
+    <h2 class="site-name">Heart of Appalachia Nurse Honor Guard</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#tribute">The Tribute</a>
+      <a href="#notify">Notify Us</a>
+      <a href="https://www.facebook.com/groups/1312724277275910">Facebook</a>
+    </nav>
+  </header>
+ 
+  <!-- HERO: the big opening section at the top -->
+  <section class="hero">
+    <h1 id="hero-title">A nurse never stops being a nurse.</h1>
+    <p id="hero-text">
+      We are volunteer nurses who honor our colleagues at the end of their
+      lives, and stand with the families they leave behind.
+    </p>
+ 
+    <!-- Clicking this button "lights" the lamp (see script.js) -->
+    <button id="lamp-button" type="button">Light the lamp</button>
+    <div id="lamp" class="lamp">
+      <div class="flame"></div>
+      <div class="lamp-top"></div>
+      <div class="lamp-base"></div>
+    </div>
+  </section>
+ 
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2>Who We Are</h2>
+    <p>
+      A nurse honor guard is a group of nurses who volunteer to pay tribute
+      to their deceased colleagues. It is a ceremonial acknowledgment of the
+      nurse's contribution and dedication to the profession.
+    </p>
+    <p>
+      The Heart of Appalachia Nurse Honor Guard was put together by Joy Goins
+      to honor the lives, service and dedication of nurses who devoted
+      themselves to caring for others, and to support grieving families.
+      We serve the Tri-State area from Bell County, Kentucky.
+    </p>
+    <p>
+      We depend on the community. If you know a nurse who is ill or has
+      passed away, please tell us.
+    </p>
+  </section>
+ 
+  <!-- THE TRIBUTE -->
+  <section id="tribute" class="section gray">
+    <h2>What a Tribute Looks Like</h2>
+    <p>
+      Nurse honor guards across the country commonly perform the Nightingale
+      Tribute, named for Florence Nightingale. Details vary from guard to
+      guard and family to family.
+    </p>
+    <ul>
+      <li><strong>The lamp:</strong> a Nightingale lamp is lit for the nurse's years of dedication.</li>
+      <li><strong>The white rose:</strong> placed near the casket or urn.</li>
+      <li><strong>The final call:</strong> the nurse's name is called and a triangle is rung three times.</li>
+    </ul>
+  </section>
+ 
+  <!-- NOTIFY FORM -->
+  <section id="notify" class="section">
+    <h2>Tell Us About a Nurse</h2>
+    <form id="notify-form">
+      <label for="nurse-name">Nurse's name</label>
+      <input type="text" id="nurse-name">
+ 
+      <label for="your-name">Your name</label>
+      <input type="text" id="your-name">
+ 
+      <label for="contact">Your phone or email</label>
+      <input type="text" id="contact">
+ 
+      <label for="notes">Anything else we should know</label>
+      <textarea id="notes" rows="4"></textarea>
+ 
+      <button type="submit">Send request</button>
+      <p id="form-message"></p>
+    </form>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>Heart of Appalachia Nurse Honor Guard - Bell County, Kentucky</p>
+  </footer>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 
