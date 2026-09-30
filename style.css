@@ -174,7 +174,26 @@ form button {
   border-color: #8b2a30;           /* red border for empty fields */
 }
  
- 
+ /* ==========================
+   TRIBUTES
+   ========================== */
+
+#tribute-list details {
+  border: 1px solid #cccccc;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+#tribute-list summary {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  cursor: pointer;                 /* shows the hand pointer on hover */
+}
+
+#tribute-list .years {
+  color: #666666;
+  margin: 10px 0 5px 0;
+}
 /* ==========================
    FOOTER
    ========================== */
