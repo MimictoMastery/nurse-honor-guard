@@ -1,21 +1,18 @@
 
-// ==========================
-// 1. THE LAMP BUTTON
-// ==========================
- 
-// Find the elements on the page by their id
+document.documentElement.classList.add("js");
+
+
 var lampButton = document.getElementById("lamp-button");
 var lamp = document.getElementById("lamp");
+var hero = document.getElementById("hero");
 var heroTitle = document.getElementById("hero-title");
 var heroText = document.getElementById("hero-text");
- 
-// When the button is clicked, run this function
+
 lampButton.addEventListener("click", function () {
- 
-  // toggle() adds the class "lit" if it's missing, and removes it if it's there
+
   lamp.classList.toggle("lit");
- 
-  // Check if the lamp is lit right now, then change the words to match
+  hero.classList.toggle("lit");
+
   if (lamp.classList.contains("lit")) {
     heroTitle.textContent = "Your years of care are remembered.";
     heroText.textContent = "The lamp is lit for every nurse who gave their life to caring for others.";
@@ -26,35 +23,46 @@ lampButton.addEventListener("click", function () {
     lampButton.textContent = "Light the lamp";
   }
 });
- 
- 
-// ==========================
-// 2. THE FORM
-// ==========================
- 
+
+
+
+
+var menuToggle = document.getElementById("menu-toggle");
+var nav = document.getElementById("nav");
+
+menuToggle.addEventListener("click", function () {
+  var isOpen = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+});
+
+nav.addEventListener("click", function (event) {
+  if (event.target.tagName === "A") {
+    nav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", false);
+  }
+});
+
+
+
 var form = document.getElementById("notify-form");
 var message = document.getElementById("form-message");
- 
-// The three boxes that must be filled in
+
 var nurseName = document.getElementById("nurse-name");
 var yourName = document.getElementById("your-name");
 var contact = document.getElementById("contact");
- 
+
 form.addEventListener("submit", function (event) {
- 
-  // Stop the browser from reloading the page
+
+  
   event.preventDefault();
- 
-  // Start by assuming everything is filled in
+
   var allFilled = true;
- 
-  // Put the required boxes in a list so we can check each one
   var required = [nurseName, yourName, contact];
- 
+
   for (var i = 0; i < required.length; i++) {
     var box = required[i];
- 
-    // trim() removes spaces, so a box with only spaces counts as empty
+
+   
     if (box.value.trim() === "") {
       box.classList.add("error-border");
       allFilled = false;
@@ -62,12 +70,69 @@ form.addEventListener("submit", function (event) {
       box.classList.remove("error-border");
     }
   }
- 
+
   if (allFilled === false) {
     message.textContent = "Please fill in the nurse's name, your name, and your phone or email.";
-    return; // stop here
+    return;
   }
+
  
-  // Nothing is sent anywhere yet. Later, an Express server can receive this.
   message.textContent = "Thank you. Online requests are not connected yet, so please also message us in our Facebook group.";
 });
+
+
+
+var tributes = [
+  {
+    name: "Example Nurse One",
+    years: "1950 to 2024",
+    story: "Write a few sentences here about her career and the people she cared for."
+  },
+  {
+    name: "Example Nurse Two",
+    years: "1962 to 2025",
+    story: "Write a few sentences here about her career and the people she cared for."
+  }
+];
+
+var tributeList = document.getElementById("tribute-list");
+
+for (var t = 0; t < tributes.length; t++) {
+  var nurse = tributes[t];
+
+  var item = document.createElement("details");
+  var title = document.createElement("summary");
+  var years = document.createElement("p");
+  var story = document.createElement("p");
+
+  title.textContent = nurse.name;
+  years.textContent = nurse.years;
+  years.className = "years";
+  story.textContent = nurse.story;
+
+  item.appendChild(title);
+  item.appendChild(years);
+  item.appendChild(story);
+  tributeList.appendChild(item);
+}
+
+
+
+
+var fadeBoxes = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  var watcher = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        watcher.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  fadeBoxes.forEach(function (box) { watcher.observe(box); });
+} else {
+
+  fadeBoxes.forEach(function (box) { box.classList.add("visible"); });
+}
